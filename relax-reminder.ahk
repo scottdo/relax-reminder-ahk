@@ -3,17 +3,16 @@
 RelaxTimer := 0
 Interval := 23
 MinsToNextAlert := Interval
-SetTimer, RelaxEyeAlert, 60000
+SetTimer, RelaxEyeReminder, 60000
 Gosub, UpdateToolTip
 return
 
-RelaxEyeAlert:
+RelaxEyeReminder:
 RelaxTimer := RelaxTimer + 1
 MinsToNextAlert := MinsToNextAlert - 1
 Gosub, UpdateToolTip
-
 if (RelaxTimer = Interval) {
-SetTimer, RelaxEyeAlert, Off
+SetTimer, RelaxEyeReminder, Off
 Gui -Resize -MinimizeBox
 Gui, Margin, 0, 0
 Gui, Font, s14 cBlue, Verdana
@@ -25,11 +24,11 @@ Gui, Show, w300 h90 xCenter yCenter, Relax Alert
 }
 return
 
-CloseAlert:
+CloseReminder:
 RelaxTimer := 0
 MinsToNextAlert := Interval
 Gosub, UpdateToolTip
-SetTimer, RelaxEyeAlert, On
+SetTimer, RelaxEyeReminder, On
 Gui, Destroy
 return
 
@@ -46,5 +45,5 @@ Menu, Tray, Tip, Stretching now...
 return
 
 GuiClose:
-Gosub, CloseAlert
+Gosub, CloseReminder
 return
