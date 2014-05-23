@@ -19,7 +19,7 @@ Gui, Font, s14 cBlue, Verdana
 Gui, Add, Text, y10 w300 Center, Stand UP and STRETCH
 Gui, Font, ,
 Gui, Font, , Verdana
-Gui, Add, Button, x105 y50 w90 gCloseAlert, I am back
+Gui, Add, Button, x105 y50 w90 gCloseReminder, I am back
 Gui, Show, w300 h90 xCenter yCenter, Relax Alert
 }
 return
